@@ -1,0 +1,117 @@
+PS C:\Users\Nagaraj G\Desktop\Final Sem Project\Code> python VGGOpt.py
+Using TensorFlow backend.
+2019-01-26 21:59:32.239055: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2019-01-26 21:59:41.886384: W tensorflow/core/framework/allocator.cc:122] Allocation of 67108864 exceeds 10% of system memory.
+2019-01-26 21:59:41.886411: W tensorflow/core/framework/allocator.cc:122] Allocation of 411041792 exceeds 10% of system memory.
+2019-01-26 22:00:18.211482: W tensorflow/core/framework/allocator.cc:122] Allocation of 411041792 exceeds 10% of system memory.
+2019-01-26 22:00:18.306238: W tensorflow/core/framework/allocator.cc:122] Allocation of 67108864 exceeds 10% of system memory.
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+input_1 (InputLayer)         (None, 224, 224, 3)       0
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, 224, 224, 64)      1792
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, 224, 224, 64)      36928
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, 112, 112, 64)      0
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, 112, 112, 128)     73856
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, 112, 112, 128)     147584
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, 56, 56, 128)       0
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, 56, 56, 256)       295168
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, 56, 56, 256)       590080
+_________________________________________________________________
+block3_conv3 (Conv2D)        (None, 56, 56, 256)       590080
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, 28, 28, 256)       0
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, 28, 28, 512)       1180160
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, 28, 28, 512)       2359808
+_________________________________________________________________
+block4_conv3 (Conv2D)        (None, 28, 28, 512)       2359808
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, 14, 14, 512)       0
+_________________________________________________________________
+block5_conv1 (Conv2D)        (None, 14, 14, 512)       2359808
+_________________________________________________________________
+block5_conv2 (Conv2D)        (None, 14, 14, 512)       2359808
+_________________________________________________________________
+block5_conv3 (Conv2D)        (None, 14, 14, 512)       2359808
+_________________________________________________________________
+block5_pool (MaxPooling2D)   (None, 7, 7, 512)         0
+_________________________________________________________________
+flatten (Flatten)            (None, 25088)             0
+_________________________________________________________________
+fc1 (Dense)                  (None, 4096)              102764544
+_________________________________________________________________
+fc2 (Dense)                  (None, 4096)              16781312
+_________________________________________________________________
+predictions (Dense)          (None, 1000)              4097000
+=================================================================
+Total params: 138,357,544
+Trainable params: 138,357,544
+Non-trainable params: 0
+_________________________________________________________________
+None
+[<tf.Tensor 'input_1:0' shape=(?, 224, 224, 3) dtype=float32>]
+[<tf.Tensor 'predictions/Softmax:0' shape=(?, 1000) dtype=float32>]
+PS C:\Users\Nagaraj G\Desktop\Final Sem Project\Code> python VGGOpt.py
+Using TensorFlow backend.
+Downloading data from https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+58892288/58889256 [==============================] - 53s 1us/step
+2019-01-26 22:10:47.444789: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+input_1 (InputLayer)         (None, None, None, 3)     0
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, None, None, 64)    1792
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, None, None, 64)    36928
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, None, None, 64)    0
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, None, None, 128)   73856
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, None, None, 128)   147584
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, None, None, 128)   0
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, None, None, 256)   295168
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, None, None, 256)   590080
+_________________________________________________________________
+block3_conv3 (Conv2D)        (None, None, None, 256)   590080
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, None, None, 256)   0
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, None, None, 512)   1180160
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, None, None, 512)   2359808
+_________________________________________________________________
+block4_conv3 (Conv2D)        (None, None, None, 512)   2359808
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, None, None, 512)   0
+_________________________________________________________________
+block5_conv1 (Conv2D)        (None, None, None, 512)   2359808
+_________________________________________________________________
+block5_conv2 (Conv2D)        (None, None, None, 512)   2359808
+_________________________________________________________________
+block5_conv3 (Conv2D)        (None, None, None, 512)   2359808
+_________________________________________________________________
+block5_pool (MaxPooling2D)   (None, None, None, 512)   0
+=================================================================
+Total params: 14,714,688
+Trainable params: 14,714,688
+Non-trainable params: 0
+_________________________________________________________________
+None
+[<tf.Tensor 'input_1:0' shape=(?, ?, ?, 3) dtype=float32>]
+[<tf.Tensor 'block5_pool/MaxPool:0' shape=(?, ?, ?, 512) dtype=float32>]
+PS C:\Users\Nagaraj G\Desktop\Final Sem Project\Code>
