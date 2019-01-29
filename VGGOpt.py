@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import keras
+from graph import plotTrainingGraph
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Model
 from keras.models import Sequential
@@ -35,10 +36,33 @@ model.add(Dense(units = 10))
 model.add(keras.layers.Activation('softmax'))
 
 #configures the model for training
-model.compile(loss = 'categorical_crossentropy', optimizer = 'sgd')
+sgd = SGD(lr=0.001, decay=0.0, momentum=0.9,nesterov=True)
+model.compile(loss = 'categorical_crossentropy', optimizer = sgd, metrics=['accuracy'] )
 
 #train the model for given number of epochs
-model.fit(x = , y = , batch_size = , epochs = , verbose = 2, validation_split = 0.3)
+training_history = {}
+try:
+    training_history = model.fit(x = , y = , batch_size = , epochs = , verbose = 2, validation_split = 0.3)
+except Exception as error:
+    print error
+
+print(training_history.history)   #print loss and accuracy of training and validation data
+plotTrainingGraph(training_history) #plot acc and loss graph for training and validation dataset
+model.save('myModel.h5')         #saving the model
+model.save_weights('myModelWeights.h5') #saving trained weight file
 
 #return accuracy for the test data with trained weights
-model.evaluate(x=, y=, batch_size=, verbose=1)
+loss = 0
+accuracy = 0
+try:
+    loss , accuracy = model.evaluate(x=, y=, batch_size=, verbose=1)
+except Exception as error:
+    print error
+
+print("The testing data loss is ", loss)
+print("The testing data accuracy is ", accuracy)
+
+
+
+
+
