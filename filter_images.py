@@ -12,7 +12,7 @@ def generate_labels_from_file(parent_file_path, all_labels_file_path, output_fil
 
 	for filename in train_image:
 		filename = filename.replace(".jpeg","")
-		if(int(dict_labels_all[filename]) != 0):
+		if(int(dict_labels_all[filename]) == 0):
 			dict_labels_req_file[filename] = dict_labels_all[filename]
 
 	print "labels length = ",len(dict_labels_req_file)
