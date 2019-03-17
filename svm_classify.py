@@ -18,7 +18,7 @@ l_test = l_test[:,1]
 l_test = l_test.astype('int')
 
 #training
-svm_model_linear = svm.SVC(kernel = 'linear', C = 1).fit(f_train,l_train)
+svm_model_linear = SVC(kernel = 'linear', C = 1).fit(f_train,l_train)
 print("training accuracy = ",svm_model_linear.score(f_train,l_train)*100)
 
 #testing
