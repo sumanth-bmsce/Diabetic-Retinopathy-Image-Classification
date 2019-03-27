@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from PIL import Image, ImageFilter
+from filter_black_images import *
 import glob
 import os
 
@@ -54,10 +55,12 @@ def preprocess(img_path):
         #print(imgfile)
         cv2.imwrite("E:\\DR\\datasets\\preprocessed_dataset\\train001\\" + names[img_count], bilinear_image)
         img_count += 1
-        if(img_count % 1000 == 0):
+        if(img_count % 250 == 0):
             print(img_count)
 
-img_path = "E:/DR/datasets/original_dataset/train001/"
+#img_path = "E:/DR/datasets/original_dataset/train001/"
 preprocess(img_path)
+filter_labels("E:\\DR\\datasets\\preprocessed_dataset\\train001\\", "E:\\DR\\datasets\\filtered_dataset\\train001\\","E:\\DR\\labels\\train001.csv","E:\\DR\\labels\\train001_filter.csv")
+
 
 
