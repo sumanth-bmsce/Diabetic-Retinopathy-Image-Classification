@@ -16,7 +16,7 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def VGG16(img_path):
-    x = image.load_img(img_path, target_size=(224,224,3))
+	x = image.load_img(img_path, target_size=(224,224,3))
     x = image.img_to_array(x)
     x = np.expand_dims(x, axis=0)
     x = keras.applications.inception_v3.preprocess_input(x)
@@ -31,12 +31,12 @@ def VGG16(img_path):
     trained_model = load_model('/gdrive/My Drive/DiabeticRetinopathy_Detection/my_model_v3_train1234.h5')
     prediction = trained_model.predict(features_input, verbose = 1,batch_size = 1)
     #contains index of prediction result(class no) for ex for 2 img predicted_class = [2,1]
-    predicted_class = prediction.indexnp.argmax(pred,-1)
+    predicted_class = np.argmax(prediction,axis=-1)
     return predicted_class[0]         
 
 
 def InceptionV3(img_path):
-    x = image.load_img(img_path, target_size=(299,299,3))
+	x = image.load_img(img_path, target_size=(299,299,3))
     x = image.img_to_array(x)
     x = np.expand_dims(x, axis=0)
     x = keras.applications.inception_v3.preprocess_input(x)
@@ -50,7 +50,7 @@ def InceptionV3(img_path):
     trained_model = load_model('/gdrive/My Drive/Inception_DR/inceptionv3_train.h5')
     prediction = trained_model.predict(features_input, verbose = 1,batch_size = 1)
     #contains index of prediction result(class no) for ex for 2 img predicted_class = [2,1]
-    predicted_class = prediction.indexnp.argmax(pred,-1)    
+    predicted_class = np.argmax(prediction,axis=-1)    
     return predicted_class[0]
 
 def getClass(class_no):
