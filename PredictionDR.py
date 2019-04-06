@@ -16,7 +16,7 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def VGG16(img_path):
-	x = image.load_img(img_path, target_size=(224,224,3))
+    x = image.load_img(img_path, target_size=(224,224,3))
     x = image.img_to_array(x)
     x = np.expand_dims(x, axis=0)
     x = keras.applications.inception_v3.preprocess_input(x)
@@ -36,7 +36,7 @@ def VGG16(img_path):
 
 
 def InceptionV3(img_path):
-	x = image.load_img(img_path, target_size=(299,299,3))
+    x = image.load_img(img_path, target_size=(299,299,3))
     x = image.img_to_array(x)
     x = np.expand_dims(x, axis=0)
     x = keras.applications.inception_v3.preprocess_input(x)
