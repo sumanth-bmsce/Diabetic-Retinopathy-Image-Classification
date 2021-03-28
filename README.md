@@ -93,10 +93,8 @@ The graph of model loss versus number of epochs is found below:
 
 [7] Karan Bhatia, Shikhar Arora, Ravi Tomar,Diagnosis of Diabetic Retinopathy Using Machine Learning Classification Algorithm’, IEEE 2nd International Conference on Next Generation Computing Technologies 2016.
 
+### Contributors
 
-
-
-
-
-
-
+1. Sumanth Simha C
+2. Nagaraj G
+3. Harish Chandra G R
