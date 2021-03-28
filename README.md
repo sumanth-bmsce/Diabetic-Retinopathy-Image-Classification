@@ -1,5 +1,5 @@
 # Automated Framework for Diabetic Retinopathy Diagnosis using Deep Learning
-Diabetic retinopathy solution CNN
+The projects aims to develop an automated system using Deep Learning to classify the retinal fundus images into different stages of Diabetic Retinopathy
 
 ### Abstract
 
